@@ -154,8 +154,8 @@
     width: 110px;
     padding: 0 20px;
     border: none;
-    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-    transition: background-color 0.3s ease-in-out;
+    /* transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1); */
+    /* transition: background-color 0.3s ease-in-out; */
     transition: color 0.3s ease-in-out;
 }
 
