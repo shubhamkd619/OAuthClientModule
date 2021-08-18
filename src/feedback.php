@@ -15,7 +15,8 @@ class feedback{
         $form_token=$_POST['form_token'];
 
         ?>
-        <html>
+        <!DOCTYPE html>
+        <html lang="en" xml:lang="en">
         <head>
             <title>Feedback</title>
             <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">

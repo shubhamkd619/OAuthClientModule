@@ -235,7 +235,6 @@ class miniorange_oauth_clientController extends ControllerBase {
             echo '</table></div>';
 
                     return new Response();
-                    exit();
         }
         if(!empty($email_attr))
             $email = self::getnestedattribute($resourceOwner, $email_attr);          //$resourceOwner[$email_attr];
