@@ -189,7 +189,7 @@ class miniorange_oauth_clientController extends ControllerBase {
             Utilities::show_attr($resourceOwner, $someattrs, 0, '', '<tr style="text-align:center;">', "<td style='font-weight:bold;padding:2%;border:2px solid #949090; word-wrap:break-word;'>" );
             $resourceOwner_encoded = json_encode($resourceOwner);
           \Drupal::configFactory()->getEditable('miniorange_oauth_client.settings')->set('miniorange_oauth_client_attr_list_from_server',$resourceOwner_encoded)->save();
-            echo '<div style="font-family:Calibri;padding:0 3%;">';
+            echo '<div style="font-family:Calibri,sans-serif;padding:0 3%;">';
 
             echo    '<div style="display:block;text-align:center;margin-bottom:4%;">
                         <img style="width:15%;"src="'. $module_path . '/includes/images/green_check.png">
@@ -244,14 +244,14 @@ class miniorange_oauth_clientController extends ControllerBase {
         /*************==============Attributes not mapped check===============************/
         if(empty($email))
         {
-            echo '<div style="font-family:Calibri;padding:0 3%;">';
+            echo '<div style="font-family:Calibri,sans-serif;padding:0 3%;">';
             echo '<div style="color: #a94442;background-color: #f2dede;padding: 15px;margin-bottom: 20px;text-align:center;border:1px solid #E6B3B2;font-size:18pt;"> ERROR</div><div style="color: #a94442;font-size:14pt; margin-bottom:20px;"><p><strong>Error: </strong>Email address does not received.</p><p>Check your <b>Attribute Mapping</b> configuration.</p><p><strong>Possible Cause: </strong>Email Attribute field is not configured.</p></div><div style="margin:3%;display:block;text-align:center;"></div><div style="margin:3%;display:block;text-align:center;"><form action="'.$base_url.'" method ="post"><input style="padding:1%;width:100px;background: #0091CD none repeat scroll 0% 0%;cursor: pointer;font-size:15px;border-width: 1px;border-style: solid;border-radius: 3px;white-space: nowrap;box-sizing: border-box;border-color: #0073AA;box-shadow: 0px 1px 0px rgba(120, 200, 230, 0.6) inset;color: #FFF;"type="submit" value="Done"></form></div>';
             exit;
             return new Response();
         }
         //Validates the email format
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-          echo '<div style="font-family:Calibri;padding:0 3%;">';
+          echo '<div style="font-family:Calibri,sans-serif;padding:0 3%;">';
           echo '<div style="color: #a94442;background-color: #f2dede;padding: 15px;margin-bottom: 20px;text-align:center;border:1px solid #E6B3B2;font-size:18pt;"> ERROR</div><div style="color: #a94442;font-size:14pt; margin-bottom:20px;"><p><strong>Error: </strong>Invalid email format of the received value.</p><p>Check your <b>Attribute Mapping</b> configuration.</p><p><strong>Possible Cause: </strong>Email Attribute field is incorrectly configured.</p></div><div style="margin:3%;display:block;text-align:center;"></div><div style="margin:3%;display:block;text-align:center;"><form action="'.$base_url.'" method ="post"><input style="padding:1%;width:100px;background: #0091CD none repeat scroll 0% 0%;cursor: pointer;font-size:15px;border-width: 1px;border-style: solid;border-radius: 3px;white-space: nowrap;box-sizing: border-box;border-color: #0073AA;box-shadow: 0px 1px 0px rgba(120, 200, 230, 0.6) inset;color: #FFF;"type="submit" value="Done"></form></div>';
           exit;
           return new Response();
@@ -272,7 +272,7 @@ class miniorange_oauth_clientController extends ControllerBase {
         /*************================================== Create user if not already present. ======================================*************/
         if (!isset($account->uid)) {
 
-            echo '<div style="font-family:Calibri;padding:0 3%;">';
+            echo '<div style="font-family:Calibri,sans-serif;padding:0 3%;">';
             echo '<div style="color: #a94442;background-color: #f2dede;padding: 15px;margin-bottom: 20px;text-align:center;border:1px solid #E6B3B2;font-size:18pt;"> ERROR</div><div style="color: #a94442;font-size:14pt; margin-bottom:20px;"><p><strong>Error: </strong>User Not Found in Drupal.</p><p>You can only log in the existing Drupal users in this version of the module.<br><br>Please upgrade to either the <a href="https://plugins.miniorange.com/drupal-oauth-client#pricing" target="_blank">Standard, Premium or the Enterprise </a> version of the module in order to create unlimited new users.</p></div><div style="margin:3%;display:block;text-align:center;"></div><div style="margin:3%;display:block;text-align:center;"><form action="'.$base_url.'" method ="post"><input style="padding:1%;width:100px;background: #0091CD none repeat scroll 0% 0%;cursor: pointer;font-size:15px;border-width: 1px;border-style: solid;border-radius: 3px;white-space: nowrap;box-sizing: border-box;border-color: #0073AA;box-shadow: 0px 1px 0px rgba(120, 200, 230, 0.6) inset;color: #FFF;"type="submit" value="Done"></form></div>';
             exit;
             return new Response();
@@ -453,7 +453,7 @@ class miniorange_oauth_clientController extends ControllerBase {
         $user_info_ep = \Drupal::config('miniorange_oauth_client.settings')->get('miniorange_auth_client_user_info_ep');
 
         if ($app_name==NULL||$client_secret==NULL||$client_id==NULL||$scope==NULL||$authorizationUrl==NULL||$access_token_ep==NULL||$user_info_ep==NULL) {
-            echo '<div style="font-family:Calibri;padding:0 3%;">';
+            echo '<div style="font-family:Calibri,sans-serif;padding:0 3%;">';
             echo '<div style="color: #a94442;background-color: #f2dede;padding: 15px;margin-bottom: 20px;text-align:center;border:1px solid #E6B3B2;font-size:18pt;"> ERROR</div><div style="color: #a94442;font-size:14pt; margin-bottom:20px;"><p><strong>Error: </strong>OAuth Server configurations could not be found.</p><p>Check your <b>OAuth Server</b> configuration.</p><p><strong>Possible Cause: </strong>OAuth Server configurations are not completed.</p></div><div style="margin:3%;display:block;text-align:center;"></div><div style="margin:3%;display:block;text-align:center;"></div>';
             exit;
             return new Response();
