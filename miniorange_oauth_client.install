@@ -1,0 +1,53 @@
+<?php
+/**
+ * @file
+ * Installation file for miniOrange OAuth Client Module.
+ */
+use Drupal\miniorange_oauth_client\feedback;
+use Drupal\miniorange_oauth_client\Utilities;
+/**
+ * hook_uninstall not needed.
+ * Configure variables are cleared when module is uninstalled.
+ **/
+ function miniorange_oauth_client_uninstall() {
+    $status = \Drupal::config('miniorange_oauth_client.settings')->get('miniorange_oauth_uninstall_status');
+    if(!( $status == 1)){
+      \Drupal::configFactory()->getEditable('miniorange_oauth_client.settings')->set('miniorange_oauth_client_feedback',1)->save();
+    }
+
+     if(\Drupal::config('miniorange_oauth_client.settings')->get('miniorange_oauth_client_feedback') == '1')
+     {
+        $drupal_is_cli = Utilities::drupal_is_cli();
+        if($drupal_is_cli)
+        {
+          \Drupal::configFactory()->getEditable('miniorange_oauth_client.settings')->clear('miniorange_oauth_client_feedback')->save();
+        }
+        else
+        {
+          global $base_url;
+    	   \Drupal::configFactory()->getEditable('miniorange_oauth_client.settings')->clear('miniorange_oauth_client_feedback')->save();
+          feedback::miniorange_oauth_client_feedback();
+        }
+    }
+
+    $mo_config = \Drupal::configFactory()->getEditable('miniorange_oauth_client.settings');
+    $mo_config->clear('mo_saml_tourTaken_config_clc')->save();
+    $mo_config->clear('mo_saml_tourTaken_mapping')->save();
+    $mo_config->clear('mo_saml_tourTaken_licensing')->save();
+    $mo_config->clear('miniorange_oauth_client_attr_list_from_server')->save();
+ }
+
+
+/**
+ * Implements hook_install().
+ */
+function miniorange_oauth_client_install() {
+  global $base_url;
+  $redirect_url = $base_url .'/mo_login';
+  $mo_config = \Drupal::configFactory()->getEditable('miniorange_oauth_client.settings');
+  $mo_config->set('miniorange_oauth_client_feedback', '1')->save();
+  $mo_config->set('miniorange_oauth_client_email_attribute', 'NameID')->save();
+  $mo_config->set('miniorange_oauth_client_username_attribute', 'NameID')->save();
+  $mo_config->set('miniorange_auth_client_callback_uri', $redirect_url)->save();
+  $mo_config->set('miniorange_oauth_uninstall_status',0);
+}

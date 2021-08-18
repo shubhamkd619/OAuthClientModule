@@ -1,0 +1,36 @@
+
+miniorange_oauth_client.config_clc:
+  route_name: miniorange_oauth_client.config_clc
+  title: 'miniOrange OAuth Client Configuration'
+  description: 'miniOrange OAuth Client Configuration'
+  parent: user.admin_index
+
+miniorange_oauth_client.customer_setup:
+  route_name: miniorange_oauth_client.customer_setup
+  title: 'Register/Login'
+  description: 'Register/Login Tab'
+  parent: miniorange_oauth_client.config_clc
+
+miniorange_oauth_client.mapping:
+  route_name: miniorange_oauth_client.mapping
+  title: 'Attribute & Role Mapping'
+  description: 'Attribute & Role Mapping Tab'
+  parent: miniorange_oauth_client.config_clc
+
+miniorange_oauth_client.settings:
+  route_name: miniorange_oauth_client.settings
+  title: 'Sign In Settings'
+  description: 'Sign In Settings Tab'
+  parent: miniorange_oauth_client.config_clc
+
+miniorange_oauth_client.licensing:
+  route_name: miniorange_oauth_client.licensing
+  title: 'Upgrade Plans'
+  description: 'Upgrade Plans Tab'
+  parent: miniorange_oauth_client.config_clc
+
+miniorange_oauth_client.request_for_demo:
+  route_name: miniorange_oauth_client.request_for_demo
+  title: 'Request for Demo'
+  description: 'Request for Demo Tab'
+  parent: miniorange_oauth_client.config_clc

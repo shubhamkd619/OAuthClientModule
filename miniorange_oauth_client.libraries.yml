@@ -1,0 +1,47 @@
+miniorange_oauth_client.admin:
+  version: VERSION
+  css:
+    layout:
+      css/miniorange_oauth_client.admin.css: {}
+
+miniorange_oauth_client.style_settings:
+  version: VERSION
+  css:
+    layout:
+      css/miniorange_oauth_client.style_settings.css: {}
+
+miniorange_oauth_client.oauth_config:
+  version: VERSION
+  js:
+    js/mo_oauth_config.js: {}
+
+miniorange_oauth_client.testconfig:
+  version: VERSION
+  js:
+    js/testconfig.js: {}
+
+miniorange_oauth_client.returnAttribute:
+  version: VERSION
+  js:
+    js/mo-return.js: {}
+
+miniorange_oauth_client.appVal:
+  version: VERSION
+  js:
+    js/appVal.js: {}
+
+miniorange_oauth_client.slide_support_button:
+  version: VERSION
+  js:
+    js/slide_support_button.js: {}
+
+miniorange_oauth_client.Vtour:
+  version: VERSION
+  css:
+    theme:
+      css/mo-card.css: {}
+  js:
+    js/dru_visual_tour.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
