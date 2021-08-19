@@ -66,7 +66,7 @@ class miniorange_oauth_clientController extends ControllerBase {
         curl_setopt( $ch, CURLOPT_ENCODING, "" );
         curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
         curl_setopt( $ch, CURLOPT_AUTOREFERER, true );
-        curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false );    # required for https urls
+        curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, true );    # required for https urls
         curl_setopt( $ch, CURLOPT_MAXREDIRS, 10 );
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', $customerKeyHeader,
             $timestampHeader, $authorizationHeader));
@@ -99,8 +99,8 @@ class miniorange_oauth_clientController extends ControllerBase {
 		curl_setopt( $ch, CURLOPT_ENCODING, "" );
 		curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
 		curl_setopt( $ch, CURLOPT_AUTOREFERER, true );
-		curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false );
-		curl_setopt( $ch, CURLOPT_SSL_VERIFYHOST, false ); // required for https urls
+		curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, true );
+		curl_setopt( $ch, CURLOPT_SSL_VERIFYHOST, true ); // required for https urls
 		curl_setopt( $ch, CURLOPT_MAXREDIRS, 10 );
 		curl_setopt( $ch, CURLOPT_POST, true );
 		$content = curl_exec( $ch );
@@ -319,7 +319,7 @@ class miniorange_oauth_clientController extends ControllerBase {
         curl_setopt( $ch, CURLOPT_ENCODING, "" );
         curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
         curl_setopt( $ch, CURLOPT_AUTOREFERER, true );
-        curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false );
+        curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, true );
         curl_setopt( $ch, CURLOPT_MAXREDIRS, 10 );
 		curl_setopt( $ch, CURLOPT_POST, true);
 
@@ -379,7 +379,7 @@ class miniorange_oauth_clientController extends ControllerBase {
         curl_setopt( $ch, CURLOPT_ENCODING, "" );
         curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
         curl_setopt( $ch, CURLOPT_AUTOREFERER, true );
-        curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false );
+        curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, true );
         curl_setopt( $ch, CURLOPT_MAXREDIRS, 10 );
         curl_setopt( $ch, CURLOPT_POST, false);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
