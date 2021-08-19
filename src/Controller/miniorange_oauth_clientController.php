@@ -126,9 +126,9 @@ class miniorange_oauth_clientController extends ControllerBase {
 				session_start();
             if (!isset($code)){
                 if(isset($_GET['error_description']))
-                    exit($_GET['error_description']);
+                    exit(htmlspecialchars($_GET['error_description']));
 			    else if(isset($_GET['error']))
-			        exit($_GET['error']);
+			        exit(htmlspecialchars($_GET['error']));
 			    exit('Invalid response');
             }
             else {
