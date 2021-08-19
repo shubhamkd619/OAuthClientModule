@@ -107,8 +107,8 @@ class feedback{
 
                                     <?php } ?>
                                     <input type="hidden" name="mo_oauth_client_check" value="True">
-                                    <input type="hidden" name="form_token" value=<?php echo $form_token ?> >
-                                    <input type="hidden" name="form_id" value= <?php echo $form_id ?>>
+                                    <input type="hidden" name="form_token" value=<?php echo htmlspecialchars($form_token) ?> >
+                                    <input type="hidden" name="form_id" value= <?php echo htmlspecialchars($form_id) ?>>
                                     <br>
                                     <textarea  class="form-control" id="query_feedback" name="query_feedback"  rows="4" style="margin-left:2%" cols="50" placeholder="Write your query here"></textarea>
                                     <br><br>
